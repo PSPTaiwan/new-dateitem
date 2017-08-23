@@ -369,9 +369,12 @@ type="button" class = "btn btn-xs btn-basic pull-left btn-circle" data-toggle="m
         <button class = "btn btn-warning" data-dismiss="modal">回上一頁</button>
         
 <!--         //限制自己不能買自己的約會 -->
+		<c:if test="${ member.getMemNo()!=null}">
        <c:if test="${dateitem.sellerNo!=member.getMemNo()}" > 
        <a href="" 
-       type="button" onclick="goajax('${dateitem.dateItemNo}')" data-toggle="modal" data-target="#confirm${dateitem.dateItemNo}" class="check btn btn-primary">預約</a> </c:if>
+       type="button" onclick="goajax('${dateitem.dateItemNo}')" data-toggle="modal" data-target="#confirm${dateitem.dateItemNo}" class="check btn btn-primary">預約</a> 
+       </c:if>
+       </c:if>
        <input type="hidden" value="${dateItem.dateItemPrice}"/>
         
     </div>
