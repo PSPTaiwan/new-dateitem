@@ -27,6 +27,11 @@
     font-style: normal;
 }
 
+#fixedbutton-talk {
+  position: fixed;
+  bottom: 3%;
+  right: 5%;
+}
 
 
 

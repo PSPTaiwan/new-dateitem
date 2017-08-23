@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="BIG5"%>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="BIG5"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html lang="en">
 
 <head>
@@ -9,232 +9,248 @@
 <meta name="description" content="">
 <meta name="author" content="">
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-<title>寵物You&amp;Me</title>
+<title>PetYM</title>
 <!-- Bootstrap Core CSS -->
 <link href="css/bootstrap.css" rel="stylesheet">
 <link href="css/nav.css" rel="stylesheet">
-<link href="css/colorplan.css" rel="stylesheet">
+<link href="css/main.css" rel="stylesheet">
 <!-- Custom CSS -->
-<link href="css/modern-business.css" rel="stylesheet">
 <!-- Custom Fonts -->
 <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet"
 	type="text/css">
-<link href="css/frontend.css" rel="stylesheet" type="text/css">
-<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-<!--[if lt IE 9]>
-<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-<![endif]-->
+<!-- <link href="css/frontend.css" rel="stylesheet" type="text/css"> -->
+
+
+<style>
+
+#logo{
+width:2em;
+margin-right:0.25em;
+/* margin-bottom:0.5em; */
+}
+
+.qa{
+	margin-top: 5em;
+	position:relative;
+/* 	right:1em; */
+}
+
+#startdating{
+	margin-top:1em;
+}
+
+ #main{ 
+ 	position:relative;
+ 	left:0.3em; 
+ 	
+
+
+</style>
+
 </head>
 
-<body>
-	<!-- Navigation -->
-	<%@ include file="indexNavBar.file"%>
-	<!-- Header Carousel -->
-	<header id="myCarousel" class="carousel slide">
-		<!-- Indicators -->
-		<ol class="carousel-indicators">
-			<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-			<li data-target="#myCarousel" data-slide-to="1"></li>
-			<li data-target="#myCarousel" data-slide-to="2"></li>
-		</ol>
-		<!-- Wrapper for slides -->
-		<div class="carousel-inner">
-			<div class="item active">
-				<div class="fill"
-					style="background-image: url('images/pets_try1.jpg');"></div>
-				<div class="carousel-caption">
-					<h2>Caption 1</h2>
-				</div>
-			</div>
-			<div class="item">
-				<div class="fill"
-					style="background-image: url('images/restaurant.jpg');"></div>
-				<div class="carousel-caption">
-					<h2>Caption 2</h2>
-				</div>
-			</div>
-			<div class="item">
-				<div class="fill"
-					style="background-image: url('images/pets_try3_resized.jpg');"></div>
-				<div class="carousel-caption">
-					<h2>Caption 3</h2>
-				</div>
-			</div>
-		</div>
-		<!-- Controls -->
-		<a class="left carousel-control" href="#myCarousel" data-slide="prev">
-			<span class="icon-prev"></span>
-		</a> <a class="right carousel-control" href="#myCarousel"
-			data-slide="next"> <span class="icon-next"></span>
-		</a>
-	</header>
-	<h5 class=" col-md-offset-3 col-md-6 page-header text-right">目前位置:首頁</h5>
-	<!-- Page Content -->
-	<div class="container frontend">
-		<!-- Marketing Icons Section -->
-		<div class="col-md-offset-3 col-md-6 fixed-height">
-			<ul class="list-unstyled">
-				<div>
-					<h4>開始找約會</h4>
-				</div>
-				</li>
-				<li class="text-center">
-					<div id="sites">
-						<span class="add-border display-block"> <input type="radio"
-							name="site1" id="girl-button" value="girl" checked="checked" /> <label
-							for="girl-button" class="selected"><img
-								src="images/girl.png" alt="" /></label> <input type="radio"
-							name="site1" id="man-button" value="man" /> <label
-							for="man-button"><img src="images/man.png" alt="" /></label>
-						</span> <span class="add-border display-block"> <input
-							type="radio" name="site2" id="dog-button" value="dog"
-							checked="checked" /> <label for="dog-button" class="selected"><img
-								src="images/dog.png" alt="" /></label> <input type="radio" name="site2"
-							id="cat-button" value="cat" /> <label for="cat-button"><img
-								src="images/cat.png" alt="" /></label>
-						</span>
+
+
+
+<html>
+
+	<body class="landing">
+		<div id="page-wrapper">
+		
+<%@ include file="frontEndNavBar.file"%>
+
+			<!-- Header -->
+<!-- 		<nav style="background:#032814;" class="navbar navbar-fixed-top  role="navigation" id="nav"> -->
+			
+<!-- 				<div class="navbar-header"> -->
+<!-- 					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#top-navbar-1"> -->
+<!-- 						<span class="sr-only">PetYM</span> -->
+<!-- 						<span class="icon-bar"></span> -->
+<!-- 						<span class="icon-bar"></span> -->
+<!-- 						<span class="icon-bar"></span> -->
+<!-- 					</button> -->
+<!-- 					<a class="navbar-brand" href="index.html">PetYM</a> -->
+
+
+
+<!-- 				</div> -->
+<!-- 				Collect the nav links, forms, and other content for toggling -->
+<!-- 				<div class="collapse navbar-collapse" id="top-navbar-1"> -->
+<!-- 					<ul class="nav navbar-nav navbar-right"> -->
+
+
+<!--   <!--  ================================== -->          -->
+<%-- 						<li><a href="<%=request.getContextPath() %>/front_end/dateitem/select_page.jsp">約會</a></li> --%>
+<%-- 						<li><a href="<%=request.getContextPath() %>/front_end/product/BrowseProduct.jsp">商城</a></li> --%>
+<%-- 						<li><a href="<%=request.getContextPath()%>/front_end/activityFront/activityIndex.jsp">活動</a></li> --%>
+<%-- 						<li><a href="<%=request.getContextPath()%>/front_end/diary/diary.jsp">寵物日誌</a></li> --%>
+<%-- 						<li><a href="<%=request.getContextPath() %>/front_end/product/Cart.jsp">購物車</a></li> --%>
+<%-- 						<li><a href="<%=request.getContextPath()%>/front_end/letter/index_letter.jsp">站內信</a></li> --%>
+<%-- 						<li><a href="<%=request.getContextPath()%>/front_end/letter/index_letter.jsp">會員專區</a></li> --%>
+<%-- 						<c:if test="${member==null}"> --%>
+<%-- 						<li><a href="<%=request.getContextPath() %>/front_end/member/login.jsp">登入</a></li> --%>
+<%-- 						</c:if> --%>
+<%-- 						<c:if test="${member!=null}"> --%>
+<!-- 						<li> -->
+<!-- 						<li><a href="#" data-toggle="modal" data-target="#logout">登出</a></li> -->
+<%-- 						</c:if> --%>
+
+<!-- 						========================= -->
+<!-- 				<li id="selectsearch"><form class="navbar-form navbar-search" role="search"> -->
+<!--                 <div class="input-group"> -->
+        
+<!--                     <input type="text" class="form-control"> -->
+                
+<!--                     <div class="input-group-btn" > -->
+<!--                         <button type="button" class="btn btn-search btn-basic"> -->
+<!--                             <span class="glyphicon glyphicon-search"></span> -->
+<!--                             <span class="label-icon ">Search</span> -->
+<!--                         </button> -->
+<!--                         <button type="button" class="btn btn-basic dropdown-toggle" data-toggle="dropdown" id="searchgroup"> -->
+<!--                             <span class="caret"></span> -->
+<!--                         </button> -->
+<!--                         <ul  class="dropdown-menu pull-right" role="menu"> -->
+<!--                             <li> -->
+<!--                                 <a href="#"> -->
+<!--                                     <span class="glyphicon glyphicon-user spancontent"></span> -->
+<!--                                     <span class="label-icon spancontent">Search By User</span> -->
+<!--                                 </a> -->
+<!--                             </li> -->
+<!--                             <li> -->
+<!--                                 <a href="#"> -->
+<!--                                 <span class="glyphicon glyphicon-book spancontent"></span> -->
+<!--                                 <span class="label-icon spancontent">Search By Organization</span> -->
+<!--                                 </a> -->
+<!--                             </li> -->
+<!--                         </ul> -->
+<!--                     </div> -->
+<!--                 </div>   -->
+<!--             </form>  </li> -->
+<!-- 					</ul> -->
+<!-- 					</ul> -->
+<!-- 				</div> -->
+			
+<!-- 		</nav> -->
+
+			<!-- Banner -->
+				<section id="banner">
+					
+				</section>
+
+			<!-- Main -->
+				<section id="main" class="container" >
+
+					<section class="box special">
+
+						<header class="major">
+							<h2><img src="images/logo-sp.png" id="logo">Pet YM 
+							<br />
+							遇見有趣的人和寵物</h2>
+							<p>無論你喜歡的是貓還是狗<br />
+							馬上加入我們，開始你的寵物約會</p><br>
+							<a href="<%=request.getContextPath() %>/front_end/dateitem/select_page.jsp" id="startdating" class="btn btn-info" >開始約會</a>
+						
+						</header>
+						
+
+						<span class="image featured"><img src="images/pic01.jpg" alt="" /></span>
+					</section>
+
+					<section class="box special features">
+					
+						<div class="features-row">
+
+							<section>
+								<a class="icon major fa-paw accent2 fourarea" href="<%=request.getContextPath() %>/front_end/dateitem/select_page.jsp"></a>
+								<h3>約會</h3>
+								<h3>Dating With Pets</h3>
+								<p>拓展你的交友圈, 拉近人與人的距離 <BR> 用地圖搜尋適合你的約會, 在對的時間對的地點, 找到完美的約會 </p>
+							</section>
+							<section>
+								<a class="icon major fa-shopping-cart accent3 fourarea" href="<%=request.getContextPath() %>/front_end/product/BrowseProduct.jsp"></a>
+								<h3>寵物商城</h3>
+								<h3>Shopping Area</h3>
+								<p>最獨特的商品, 最獨家的價格, 檔期限定 <BR>
+								每周更新架上商品, 為你家的寵物大人購買專屬商品, 宅配到府</p>
+							</section>
+						</div>
+						<div class="features-row">
+							<section>
+								<a class="icon major fa-users accent4 fourarea" href="<%=request.getContextPath()%>/front_end/activityFront/activityIndex.jsp"></a>
+								<h3>餐廳活動</h3>
+								<h3>Group Activities</h3>
+								<p>貓Party狗party, 交流交友的平台 <BR>
+								 快進來看最新發起的活動, 最棒的活動體驗</p>
+							</section>
+							<section>
+								<a class="icon major fa-book accent5 fourarea" href="<%=request.getContextPath()%>/front_end/diary/diary.jsp"></a>
+								<h3>寵物日誌</h3>
+								<h3>Pets' Diary</h3>
+								<p> 追蹤寵物明星 , 分享生活點滴<br>
+								過去的你我來不及參與, 未來絕對不錯過</p>
+							</section>
+						</div>
+					</section>
+
+					<div class="row">
+						<div class="6u 12u(narrower) qa">
+
+							<section class="box special">
+								<span class="image featured"><img src="images/rest.jpg" alt="" /></span>
+								<h3>更新餐廳資料</h3>
+								<h3>Restaurant Owners' Club</h3>
+								<p>你是寵物餐廳主人嗎? 快來發起一些活動吧</p>
+								<ul class="actions">
+									<li><a href="#" class="button alt">Learn More</a></li>
+								</ul>
+							</section>
+
+						</div>
+						<div class="6u 12u(narrower) qa">
+
+							<section class="box special">
+								<span class="image featured"><img src="images/qa.jpg" alt="" /></span>
+								<h3>熱門QA</h3>
+								<h3>Frequent Questions and Answers</h3>
+								<p>完整網站使用指南, 你想知道的都能在這得到解答</p>
+								<ul class="actions">
+									<li><a href="#" class="button alt">Learn More</a></li>
+								</ul>
+							</section>
+
+						</div>
 					</div>
-				</li>
-				<li>
-					<button class=" btn-fg btn-block btn btn-default">搜尋</button>
-				</li>
-			</ul>
-		</div>
-		<div class="container item-margin-lg" id="fg-a">
-			<h2 class=" col-md-12 page-header top-margin">在這你可以</h2>
-			<div class="row">
-				<div class="text-center col-xs-12 col-sm-5 item-margin-lg">
-					<a href="date.html">
-						<h2>寵物約會商品</h2>
-						<HR color="#ccc" size="10">
-						<h3>找到附近的寵物和主人</h3>
-						<h3>馬上認識新朋友和寵物</h3>
-					</a>
-				</div>
-				<div class="col-xs-12 col-sm-7 item-margin-lg">
-					<a href="date.html"> <img
-						class="adjust-size img-rounded img-responsive img-portfolio img-hover"
-						src="images/WP14-750x400.jpg" alt="">
-					</a>
-				</div>
 
+				</section>
 
-				<div
-					class="auto-center text-center col-xs-12 col-sm-5 item-margin-lg col-sm-push-7 ">
-					<a href="product.html">
-						<h2>寵物商城</h2>
-						<HR color="#ccc" size="10">
-						<h3>精選個性化商品</h3>
-						<h3>最殺價格限時購</h3>
-					</a>
-				</div>
-				<div class="col-xs-12 col-sm-7 item-margin-lg col-sm-pull-5">
-					<a href="product.html"> <img
-						class="adjust-size img-rounded img-responsive img-portfolio img-hover"
-						src="images/WP7-750x400.jpg" alt="">
-					</a>
-				</div>
-				<div class="text-center col-xs-12 col-sm-5 item-margin-lg">
-					<a href="activity.html">
-						<h2>寵物活動</h2>
-						<HR color="#ccc" size="10">
-						<h3>寵物Party</h3>
-						<h3>熱血開跑</h3>
-					</a>
-				</div>
-				<div class="col-xs-12 col-sm-7 item-margin-lg">
-					<a href="activity.html"> <img
-						class="adjust-size img-rounded img-responsive img-portfolio img-hover"
-						src="images/WP15-700x450.jpg" alt="">
-					</a>
-				</div>
-				<div
-					class="text-center col-xs-12 col-sm-5 item-margin-lg col-sm-push-7">
-					<a href="diary.html">
-						<h2>寵物日誌</h2>
-						<HR color="#ccc" size="10">
-						<h3>分享寵物生活</h3>
-						<h3>發掘有趣寵物</h3>
-					</a>
-				</div>
-				<div class="col-xs-12 col-sm-7 item-margin-lg col-sm-pull-5">
-					<a href="diary.html"> <img
-						class="adjust-size img-rounded img-responsive img-portfolio img-hover"
-						src="images/WP17-750x400.jpg" alt="">
-					</a>
-				</div>
-			</div>
-		</div>
-		<hr>
+			<!-- CTA -->
+<!-- 				<section id="cta">
 
+					<h2>Sign up for beta access</h2>
+					<p>Blandit varius ut praesent nascetur eu penatibus nisi risus faucibus nunc.</p> -->
 
-		<!-- MODAL -->
-		<div class="modal fade" id="logout" tabindex="-1" role="dialog"
-			aria-labelledby="exampleModalLabel" aria-hidden="true">
-			<div class="modal-dialog" role="document">
-				<div class="modal-content">
-					<div class="modal-header">
-						<h3 class="modal-title" id="exampleModalLabel">是否確定登出?</h5>
-						<button type="button" class="close" data-dismiss="modal"
-							aria-label="Close">
-							<span aria-hidden="true">&times;</span>
-						</button>
-					</div>
-					<div class="modal-footer">
-						<span>
+<!-- 					<form>
+						<div class="row uniform 50%">
+							<div class="8u 12u(mobilep)">
+								<input type="email" name="email" id="email" placeholder="Email Address" />
+							</div>
+							<div class="4u 12u(mobilep)">
+								<input type="submit" value="Sign Up" class="fit" />
+							</div>
+						</div>
+					</form> -->
 
-							<form action="<%=request.getContextPath() %>/Update" method="post">
-								<input type="hidden" name="action" value="logout">
-								<button type="button" class="btn btn-secondary"
-									data-dismiss="modal">否</button>
-								<input type="submit" class="btn btn-primary" value="是">
-							</form>
-						</span>
-					</div>
-				</div>
-			</div>
+<!-- 				</section> -->
+
+<%@ include file="/front_end/frontEndButtom.file"%>
+
 		</div>
 
-		<!-- Footer -->
-		<footer>
-			<div class="row">
-				<div class="col-sm-12">
-					<div class="col-sm-3">
-						<p>Copyright 寵物You&amp;Me 2017</p>
-					</div>
-					<div class="col-sm-3">
-						<p>關於我們</p>
-					</div>
-				</div>
-			</div>
-		</footer>
-	</div>
-	<a href="#">
-		<div class="" id="fixedbutton-talk">
-			<button class="button btn-lg btn-primary active">交易聊天室</button>
-		</div>
-	</a>
-	<!-- /.container -->
-	<!-- jQuery -->
-	<script src="js/jquery.js"></script>
-	<!-- Bootstrap Core JavaScript -->
-	<script src="js/bootstrap.min.js"></script>
-	<!-- Script to Activate the Carousel -->
-	<script>
-    $('.carousel').carousel({
-        interval: 　10000 //changes the speed
-    });
 
-    function init() {
-        $('#sites input:radio').addClass('input_hidden');
-        $('#sites label').click(function() {
-            $(this).addClass('selected').siblings().removeClass('selected');
-        });
-    };
-    window.onload = init;
-    </script>
-</body>
+			
+			<script src="js/bootstrap.js"></script>
 
+	</body>
 </html>
+
+

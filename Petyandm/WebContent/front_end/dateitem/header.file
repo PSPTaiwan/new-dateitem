@@ -10,11 +10,12 @@
 <script src="<%=request.getContextPath() %>/front_end/js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/css/bootstrap-select.min.css">
 <link href="<%=request.getContextPath() %>/front_end/css/bootstrap.css" rel="stylesheet">
-<link href="<%=request.getContextPath() %>/front_end/css/nav.css" rel="stylesheet">
-<link href="<%=request.getContextPath() %>/front_end/css/colorplan.css" rel="stylesheet">
+<! <link href="<%=request.getContextPath() %>/front_end/css/colorplan.css" rel="stylesheet">
 <link href="<%=request.getContextPath() %>/front_end/css/frontend.css" rel="stylesheet" type="text/css">
 <link href="<%=request.getContextPath() %>/front_end/css/itemdetail.css" rel="stylesheet" type="text/css">
-<link href="<%=request.getContextPath() %>/front_end/css/chat.css" rel="stylesheet" type="text/css">
+ <link href="<%=request.getContextPath() %>/front_end/css/chat.css" rel="stylesheet" type="text/css"> 
+<link href="<%=request.getContextPath() %>/front_end/css/nav.css" rel="stylesheet" type="text/css"> 
+
 
 <link href="<%=request.getContextPath() %>/front_end/font-awesome/css/font-awesome.css" rel="stylesheet"
 	type="text/css">
@@ -22,7 +23,7 @@
 	
 	
 <link href="<%=request.getContextPath() %>/front_end/css/date.css" rel="stylesheet">
-<link href="<%=request.getContextPath() %>/front_end/css/card.css" rel="stylesheet">
+ <link href="<%=request.getContextPath() %>/front_end/css/card.css" rel="stylesheet"> 
 <link href="<%=request.getContextPath() %>/front_end/css/fileinput.min.css" media="all" rel="stylesheet" type="text/css" >
 <script src="<%=request.getContextPath() %>/front_end/js/fileinput.min.js"></script>
 <script src="<%=request.getContextPath() %>/front_end/js/jquery.syotimer.js"></script>
@@ -32,7 +33,7 @@
  <link href="<%=request.getContextPath() %>/front_end/css/jquery.datetimepicker.css" rel="stylesheet" type="text/css">
  <script src="<%=request.getContextPath() %>/front_end/js/jquery.datetimepicker.full.min.js"></script>
 
- <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/bootstrap-select.min.js"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/bootstrap-select.min.js"></script> 
  <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
  <script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
 
