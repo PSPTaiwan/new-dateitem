@@ -14,6 +14,7 @@ import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.GregorianCalendar;
 import java.util.List;
+import java.util.Map;
 import java.sql.Clob;
 
 public class DateItemJDBCDAO implements DateItemDAO_interface{
@@ -493,6 +494,24 @@ public class DateItemJDBCDAO implements DateItemDAO_interface{
 
 	@Override
 	public Integer findTheOtherMem(int memNo, int dateItemNo) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<DateItemVO> getAllWithoutImg() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<DateItemVO> getAll(Map<String, String[]> map) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<SDateItemVO> findByDate(String date) {
 		// TODO Auto-generated method stub
 		return null;
 	}

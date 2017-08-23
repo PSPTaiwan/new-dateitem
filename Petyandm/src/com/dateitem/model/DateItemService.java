@@ -4,6 +4,7 @@ import java.sql.Date;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.annotation.MultipartConfig;
 
@@ -172,4 +173,21 @@ public class DateItemService {
 		return dateItemNo;
 	
 }
+	
+	
+	public List<DateItemVO> getAll(Map<String, String[]> map) {
+		return dao.getAll(map);
+	}
+	
+	
+	public List<SDateItemVO> findByDate(String date){
+		return dao.findByDate(date);
+	}
+	
+	public List<DateItemVO> getAllWithOutImg() {
+		return dao.getAllWithoutImg();
+	}
+	
+	
+	
 }

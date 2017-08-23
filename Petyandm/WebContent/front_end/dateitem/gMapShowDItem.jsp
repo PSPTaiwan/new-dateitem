@@ -1,13 +1,52 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="Big5"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page isELIgnored="false" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ page isELIgnored="false"%>
 <%@ page import="com.dateitem.model.*"%>
-<%@ page import="com.restaurant.model.*" %>
-<%@ page import="com.member.model.*" %>
+<%@ page import="com.restaurant.model.*"%>
+<%@ page import="com.member.model.*"%>
 <%@ page import="java.util.*"%>
 
-<style>
+<%@ include file="header.file"%>
 
+
+
+<jsp:useBean id = "dSvc" scope="page" class="com.dateitem.model.DateItemService" />
+<jsp:useBean id = "memSvc" scope="page" class="com.member.model.MemberService" />
+<jsp:useBean id = "restSvc" scope="page" class="com.restaurant.model.RestaurantService"/>
+<jsp:useBean id = "pSvc" scope="page" class="com.pet.model.PetService"/>
+<jsp:useBean id = "msgSvc" scope="page" class="com.msg.model.MsgService"/>
+<%
+	Member member = (Member) session.getAttribute("member");
+	try{
+	int memNo= member.getMemNo();
+	}catch(Exception e){		};
+    List<DateItemVO> list = dSvc.getAllWithOutImg();
+    pageContext.setAttribute("list",list);
+%>
+
+<%
+	List<DateItemVO> listEmps_ByCompositeQuery = (List<DateItemVO>) request.getAttribute("listEmps_ByCompositeQuery");
+	pageContext.setAttribute("list", listEmps_ByCompositeQuery);
+%>
+
+
+
+
+<head>
+<title>約會首頁</title>
+<link href="<%=request.getContextPath() %>/front_end/css/modern-business.css" rel="stylesheet" type="text/css">
+<style>
+/* @font-face { */
+/*     font-family: clock; */
+/*     src: url(../fonts/digital-7.ttf); */
+/* } */
+
+/* @font-face { */
+/*     font-family: led; */
+/*     src: url(../fonts/led_real.ttf); */
+/*     font-weight: normal; */
+/*     font-style: normal; */
+/* } */
 
 @font-face {
     font-family: DJB;
@@ -16,11 +55,7 @@
     font-style: normal;
 }
 
-#fixedbutton-talk {
-  position: fixed;
-  bottom: 3%;
-  right: 5%;
-}
+
 
 blockquote>p {
 position:relative;
@@ -109,51 +144,22 @@ float:right;
 .select-style select:focus {
     outline: none;
 }
-
-
-
-
 </style>
 
-<%@ include file="header.file"%>
-
-
-
-
-<jsp:useBean id = "dSvc" scope="page" class="com.dateitem.model.DateItemService" />
-<jsp:useBean id = "memSvc" scope="page" class="com.member.model.MemberService" />
-<jsp:useBean id = "restSvc" scope="page" class="com.restaurant.model.RestaurantService"/>
-<jsp:useBean id = "pSvc" scope="page" class="com.pet.model.PetService"/>
-<jsp:useBean id = "msgSvc" scope="page" class="com.msg.model.MsgService"/>
-<%
-	Member member = (Member) session.getAttribute("member");
-	try{
-	int memNo= member.getMemNo();
-	}catch(Exception e){		};
-    List<DateItemVO> list = dSvc.getAllWithOutImg();
-    pageContext.setAttribute("list",list);
-%>
-
-
-
-
-
-<head><title>約會首頁</title>
-<%-- <link href="<%=request.getContextPath() %>/front_end/css/modern-business.css" rel="stylesheet" type="text/css"> --%>
 </head>
 <body bgcolor='white'>
 
 
 
-<%@ include file="/front_end/frontEndNavBar.file"%>
-<%@ include file="sidelist.file"%>
+	<%@ include file="/front_end/frontEndNavBar.file"%>
+	<%@ include file="sidelist.file"%>
 
-<%-- <%@ include file="page3.file"%>	 --%>
+	<%-- <%@ include file="page3.file"%>	 --%>
 
-<!-- JSP以一個包含格線的div開始, 但是結束的</div>寫在footer裡面 -->
+	<!-- JSP以一個包含格線的div開始, 但是結束的</div>寫在footer裡面 -->
 
-<div class="col-xd-12 col-sm-10  main-page-show">
-<div class="row">
+	<div class="col-xd-12 col-sm-10  main-page-show">
+		<div class="row">
 
 			<div class="col-xd-12 col-sm-3"> 
 			<a href="#" class="list-group-item"
@@ -257,50 +263,54 @@ float:right;
 			</div>
 
 
- </div>
- 
-<%@ include file="pages/page1.file" %> 
-  <div> 
-  <c:forEach var="dateitem" items="${list}" varStatus="s" begin="<%=pageIndex%>" end="<%=pageIndex+rowsPerPage-1%>">
-          <c:if test="${s.index%3==0}"> 
+
+
+		</div>
+
+		<%@ include file="pages/page1_ByCompositeQueryForGoogle.file"%>
+		
+
+		
+		<div>
+		<c:forEach var="dateitem" items="${list}" begin="<%=pageIndex%>" varStatus="s" end="<%=pageIndex+rowsPerPage-1%>">
+			<c:if test="${s.index%3==0}"> 
 			<div class="row">
-			</c:if>
-          
-          <div class="col-sm-4 ">
-            <div class="bg-color">
-            <div class="card hovercard">
-                <div class="cardheader" style="background-image:url('ImgReader?dateItemNo=${dateitem.dateItemNo}&action=dateImg');">
+			 </c:if>
+			<div class="col-sm-4 ">
+				<div class="bg-color">
+					<div class="card hovercard">
+						<div class="cardheader"
+							style="background-image:url('ImgReader?dateItemNo=${dateitem.dateItemNo}&action=dateImg');">
 
-                <input  type="hidden" value="${dateitem.sellerNo}">
-                <input class="no1" type="hidden" value="${dateitem.dateItemNo}">
+							<input type="hidden" value="${dateitem.sellerNo}"> <input
+								class="no1" type="hidden" value="${dateitem.dateItemNo}">
 
-                </div>
-                <div class="avatar">
-                	 <input  type="hidden" value="${dateitem.sellerNo}">
-                    <img class="img1" src="ImgReader?sellerNo=${dateitem.sellerNo}&action=memImg">
-                    <input  type="hidden" value="${dateitem.dateItemNo}">
-  
-                </div>
-                <div class="info">
-                    <div class="title dateDes">
-                        <a class="dateDes" target="_blank" href="">${dateitem.dateItemTitle}</a>
-                    </div>
-                    <div class="desc">${memSvc.getOneMember(dateitem.sellerNo).getMemSname()}</div>
-                    <div class="desc">${dSvc.getTimeForItem(dateitem.dateMeetingTime)}</div>
-                    <div class="desc">${dateitem.dateItemLocate}</div>
-                  
-                </div>
-                <div class="bottom">
-                    <a class="btn btn-info"  data-toggle="modal" data-target="#modal-detail${dateitem.dateItemNo}" href="">
-                        詳情
-                    </a>
-                </div>
-                </div>
-            </div>
-
-        </div>
- 
-<!--  商品明細的跳窗 -->
+						</div>
+						<div class="avatar">
+							<input type="hidden" value="${dateitem.sellerNo}"> <img
+								class="img1"
+								src="ImgReader?sellerNo=${dateitem.sellerNo}&action=memImg">
+							<input type="hidden" value="${dateitem.dateItemNo}"> l
+						</div>
+						<div class="info">
+							<div class="title dateDes">
+								<a class="dateDes" target="_blank" href="http://scripteden.com/">${dateitem.dateItemTitle}</a>
+							</div>
+							<div class="desc">${memSvc.getOneMember(dateitem.sellerNo).getMemSname()}</div>
+							<div class="desc">${dSvc.getTimeForItem(dateitem.dateMeetingTime)}</div>
+							<div class="desc">${dateitem.dateItemLocate}</div>
+						</div>
+						<div class="bottom">
+							<a class="btn btn-info"  data-toggle="modal" data-target="#modal-detail${dateitem.dateItemNo}" href=""> 詳情 </a>
+						</div>
+					</div>
+				</div>
+			</div>
+		
+		
+		
+		
+		<!--  商品明細的跳窗 -->
 
 <div id="modal-detail${dateitem.dateItemNo}" class="modal fade" role="dialog">
   <div class="modal-dialog modal-lg">
@@ -359,13 +369,9 @@ type="button" class = "btn btn-xs btn-basic pull-left btn-circle" data-toggle="m
         <button class = "btn btn-warning" data-dismiss="modal">回上一頁</button>
         
 <!--         //限制自己不能買自己的約會 -->
-		<c:if test="${ member.getMemNo()!=null}">
        <c:if test="${dateitem.sellerNo!=member.getMemNo()}" > 
-      
        <a href="" 
-       type="button" onclick="goajax('${dateitem.dateItemNo}')" data-toggle="modal" data-target="#confirm${dateitem.dateItemNo}" class="check btn btn-primary">預約</a> 
-       </c:if>
-       </c:if>
+       type="button" onclick="goajax('${dateitem.dateItemNo}')" data-toggle="modal" data-target="#confirm${dateitem.dateItemNo}" class="check btn btn-primary">預約</a> </c:if>
        <input type="hidden" value="${dateItem.dateItemPrice}"/>
         
     </div>
@@ -432,21 +438,23 @@ type="button" class = "btn btn-xs btn-basic pull-left btn-circle" data-toggle="m
 
   </div>
   </div>
- 
- 
- 			<c:if test="${s.index%3==2}"> 
+		
+		
+		
+		
+		
+			<c:if test="${s.index%3==2}"> 
 				</div>
 			 </c:if>
- 
- </c:forEach>
- </div>       
-<%@ include file="pages/page2.file" %> 
- 
+		
+		</c:forEach>
+		</div>
+		<%@ include file="pages/page2_ByCompositeQueryForGoogle.file"%>
+
+
+
 <%@ include file="/front_end/frontEndButtom.file"%>
-<%@ include file="chat.file"%>
 
-
-</div> 
 
 <script>
 <!--檢查儲值 -->
@@ -579,6 +587,8 @@ $(document).ready(function(){
 
 
 </script>
+
+
 		<script>
 			$(function() {
 
