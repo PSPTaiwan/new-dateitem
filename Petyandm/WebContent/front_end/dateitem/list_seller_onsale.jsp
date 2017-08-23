@@ -48,6 +48,11 @@ pageContext.setAttribute("list",list);
    <c:remove var="itemAdded" scope="request"/>
   </c:if>
   
+  
+     <c:if test="${not empty canNotReinsert}">
+  <h1>約會已在架上或過期，請重新上架新約會</h1>
+   <c:remove var="canNotReinsert" scope="request"/>
+  </c:if>
 
     <div class="row">
         <div class="col-sm-12">

@@ -1,6 +1,5 @@
 package com.dateitem.controller;
 
-import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.io.*;
 import java.sql.Timestamp;
@@ -202,7 +201,45 @@ public class DateItemServlet extends HttpServlet {
 		}
 				
 				
+		if("reinsert".equals(action)){
+		//重新上架商品
 			
+			HttpSession session = req.getSession();
+			Member member = (Member) session.getAttribute("member");
+			int sellerNo = member.getMemNo();
+			int dateItemNo = Integer.parseInt(req.getParameter("dateItemNo"));
+			DateItemService dSvc = new DateItemService();
+			DateItemVO dateItemVO = dSvc.findByPK(dateItemNo);
+			
+			try {
+
+				
+				//檢查按下連結的確實為賣家並且該商品確實被取消
+				if(sellerNo==dateItemVO.getSellerNo()&& dateItemVO.getDateItemShow()==1 && dateItemVO.getDateItemStatus()==2){
+					//檢查該商品未過期
+					if(dateItemVO.getDateMeetingTime().getTime()>System.currentTimeMillis()){
+						dSvc.addDateItem(sellerNo, dateItemVO.getRestListNo(), dateItemVO.getDateItemTitle(), dateItemVO.getDateItemImg(),
+						dateItemVO.getDateItemText(), new Timestamp(System.currentTimeMillis()), dateItemVO.getDateMeetingTime(), dateItemVO.getDateItemLocate(), dateItemVO.getDateItemPeople(),
+						dateItemVO.getHasMate(), dateItemVO.getDateItemPrice(), 0, 0, dateItemVO.getDateItemViewer(), 5010,
+						dateItemVO.getIsQRCChecked(), dateItemVO.getBuyerRep(), dateItemVO.getSellerRep(), dateItemVO.getIsInstantDate() , dateItemVO.getPetNo());
+						req.setAttribute("itemAdded", dateItemVO);
+						String url = "/front_end/dateitem/list_seller_onsale.jsp";
+						RequestDispatcher successView = req.getRequestDispatcher(url); // 新增成功後轉交listAllEmp.jsp
+						successView.forward(req, res);	
+					}
+				}else{
+					req.setAttribute("canNotReinsert", dateItemVO);
+					String url = "/front_end/dateitem/list_seller_onsale.jsp";
+					RequestDispatcher successView = req.getRequestDispatcher(url);
+					successView.forward(req, res);	
+				}
+			} catch (Exception e) {
+					req.setAttribute("canNotReinsert", dateItemVO);
+					String url = "/front_end/dateitem/list_seller_onsale.jsp";
+					RequestDispatcher successView = req.getRequestDispatcher(url);
+					successView.forward(req, res);
+					}
+			}				
 			
 			
 
