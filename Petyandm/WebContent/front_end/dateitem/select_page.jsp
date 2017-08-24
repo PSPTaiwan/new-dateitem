@@ -468,7 +468,7 @@ function goajax(dateItemNo){
   	        		$('#textshow'+dateItemNo).html('<h1>餘額不足請儲值<h1>');	
   	        		$('#confirm'+dateItemNo).modal('show');
   	        		$('#checkPrice'+dateItemNo).text('前往儲值');
-  	        		$('#checkPrice'+dateItemNo).attr("href", "/front_end/charge/chargePage.jsp?from=dateitem")
+  	        		$('#checkPrice'+dateItemNo).attr("href", "<%=request.getContextPath() %>/front_end/charge/chargePage.jsp?from=dateitem")
 	        	}
 	        },
 	        error: function(){

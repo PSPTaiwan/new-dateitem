@@ -23,16 +23,22 @@ public class ScheduleServlet extends HttpServlet {
 	        	DateItemService dSvc=new DateItemService();
 	        	List<DateItemVO> list = dSvc.getAllItems();
 	        	
+	        	//即時約會過時間下架, 一般商品四小時前下架
 				for(DateItemVO dateItemVO:list){
-					//把每個商品跟目前要上架的時間都轉成long比較是否差距四小時
 					Long dateItemMeetingTime = (dateItemVO.getDateMeetingTime()).getTime();
 					Long now = System.currentTimeMillis();
 					Long fourHour = 60*60*4*1000l ;
-					if (dateItemMeetingTime-now<fourHour){
-						dateItemVO.setDateItemShow(1);
-						//自動下架即將到期的商品
+					//把每個商品跟目前要上架的時間都轉成long比較是否差距四小時
+					if(dateItemVO.getIsInstantDate()==false){
+						if (dateItemMeetingTime-now<fourHour){
+							dateItemVO.setDateItemShow(1);
+						}
+					}else if(dateItemVO.getIsInstantDate()==true){
+						if (dateItemMeetingTime<now){
+							dateItemVO.setDateItemShow(1);
+						}
 					}
-					}    
+				}   
 	        } 
       };
       timer = new Timer(); 

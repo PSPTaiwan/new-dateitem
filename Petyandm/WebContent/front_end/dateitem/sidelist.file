@@ -8,9 +8,7 @@
                 <div id="menu">
                     <div class="panel list-group list-color postion-left-group">
                         <a href="<%=request.getContextPath() %>/front_end/dateitem/select_page.jsp" class="list-group-item">約會首頁</a>
-                        <a href="#" class="list-group-item">人氣排行</a>
-                        <a href="#" class="list-group-item">即將到來的約會</a>
-                        <a href="<%=request.getContextPath() %>/front_end/dateitem/dateitem.do?action=list_buyer_future" class="list-group-item">買家購買紀錄</a>
+                       <a href="<%=request.getContextPath() %>/front_end/dateitem/dateitem.do?action=list_buyer_future" class="list-group-item">買家購買紀錄</a>
                     </div>
                     <div class="panel list-group list-color">
                         <a href="<%=request.getContextPath() %>/front_end/dateitem/dateitem.do?action=check_Seller" class="list-group-item">上架約會商品</a>
